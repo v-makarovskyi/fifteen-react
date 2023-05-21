@@ -73,6 +73,13 @@ function pug() {
     .pipe(gulpif(!isProduction, gulpConnect.reload()))
 }
 
+function images() {
+    return gulp.src(srcIMAGES)
+    .pipe(gulpif(isProduction, gulpImageMin()))
+    .pipe(gulp.dest(outputDir))
+    .pipe(gulpif(!isProduction, gulpConnect.reload()))
+}
+
 
 
 
