@@ -95,6 +95,19 @@ function watch() {
     gulp.watch(srcSASS, gulp.series(buildsStyles))
 }
 
+exports.default = gulp.parallel(
+    watch,
+    gulp.series(clean, server, buildsStyles, js, images, pug, svg)
+)
 
+exports.server = server
+exports.clean = clean
+
+exports.build = gulp.series(clean, buildsStyles, js, images, pug, svg)
+
+exports.dev = gulp.parallel(
+    watch,
+    gulp.series(clean, server, buildsStyles, js, images, pug, svg)
+)
 
 
