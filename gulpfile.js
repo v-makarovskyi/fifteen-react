@@ -80,6 +80,13 @@ function images() {
     .pipe(gulpif(!isProduction, gulpConnect.reload()))
 }
 
+function js() {
+    return gulp.src(srcJS)
+    .pipe(gulpif(isProduction, uglify()))
+    .pipe(gulp.dest(outputDir))
+    .pipe(gulpif(!isProduction, gulpConnect.reload()))
+}
+
 
 
 
