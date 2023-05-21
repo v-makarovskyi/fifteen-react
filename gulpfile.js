@@ -87,6 +87,14 @@ function js() {
     .pipe(gulpif(!isProduction, gulpConnect.reload()))
 }
 
+function watch() {
+    gulp.watch(srcJS, gulp.series(js))
+    gulp.watch(srcSVG, gulp.series(svg))
+    gulp.watch(srcPUG, gulp.series(pug))
+    gulp.watch(srcIMAGES, gulp.series(images))
+    gulp.watch(srcSASS, gulp.series(buildsStyles))
+}
+
 
 
 
