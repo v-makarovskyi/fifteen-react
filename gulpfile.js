@@ -1,6 +1,5 @@
 const gulp = require('gulp')
 const gulpSass = require('gulp-sass')(require('sass'));
-/* var  concat  = require ( ' gulp-concat ' ) ;  */
 const cleanCSS = require ('gulp-clean-css') ;  
 const gulpConnect = require('gulp-connect');
 const uglify = require ('gulp-uglify');
@@ -10,7 +9,7 @@ const gulpif = require('gulp-if');
 const plumber = require('gulp-plumber');
 const del = require('delete');
 const svgSprite = require('gulp-svg-sprite');
-const gulpPug = require('pag')
+const gulpPug = require('gulp-pug')
 
 const outputDir = 'static'
 const isProduction = process.env.NODE_ENV === 'production'
@@ -23,10 +22,10 @@ const srcIMAGES = ['src/**/*.png', 'src/**/*.jpeg', 'src/**/*.gif', 'src/**/*.jp
 
 function server() {
     return gulpConnect.server({
-        root: '/static',
-        livereload: true,
         host: '0.0.0.0',
-        port: 5000
+        port: 8080,
+        root: 'static/',
+        livereload: true,
     })
 }
 
@@ -36,7 +35,7 @@ function clean(cb) {
 
 function buildsStyles() {
     return gulp.src(srcSASS)
-    .pipe(sass().on('error', sass.logError))
+    .pipe(gulpSass().on('error', gulpSass.logError))
     .pipe(cleanCSS())
     .pipe(gulp.dest(outputDir))
     .pipe(gulpif(!isProduction, gulpConnect.reload()))
