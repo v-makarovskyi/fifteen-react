@@ -1,6 +1,125 @@
 @import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;800&display=swap');
+:root {
+  --quatro-size: 50px;
+  --item-border-width: 3px;
+  --item-border-color: #727171;
+  --item-fill-color: #545353;
+  --item-empty-color: wheat;
+  --item-margin: 2px;
+  --area-border_color: #a27474;
+  --radius: 12px;
+  --item-hovered-text-color: var(var(--item-border-color));
+  --btn-fill-color: #019999;
+}
 
 .app {
   font-family: 'Jost', sans-serif;
+  width: 500px;
+  text-align: center;
 }
+
+.container {
+  margin: 0 auto;
+}
+
+.title {
+  padding-top: 1rem;
+  font-weight: 600;
+  font-size: 1.6rem;
+}
+
+.selectSizeArea {
+  padding-top: .5rem;
+}
+
+.selectSizeArea .selectSizeArea-title {
+  font-weight: normal;
+  font-size: 1.2rem;
+}
+
+.selectSizeArea .selectSizeArea-wrapper {
+  padding-top: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.selectSizeArea-wrapper button.select-button {
+  width: 150px;
+  height: 40px;
+  border: none;
+  color: #ffffff;
+  background: var(--btn-fill-color);
+  cursor: pointer;
+  transition: all .3s ease-in-out;
+}
+
+.selectSizeArea-wrapper button.select-button:hover {
+  background: crimson;
+  color: wheat;
+}
+
+.selectSizeArea-wrapper button.select-button span {
+  padding: .3rem 0;
+  display: inline-block;
+  width: 92%;
+  font-size: 1.2rem;
+  box-shadow: inset 0px 0px 5px #ffffff;
+}
+
+.game-area {
+  margin: 12px auto;
+  border: var(--item-border-width) solid var(--area-border_color);
+  border-radius: var(--radius);
+  display: flex;
+  flex-wrap: wrap;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+}
+
+.game-area-size-3 {
+}
+
+.game-area-size-4 {
+  width: calc((var(--quatro-size) + 2 * var(--item-border-width)) * 4);
+}
+
+.game-area-size-5 {}
+
+.item {
+  width: var(--quatro-size);
+  height: var(--quatro-size);
+  margin: var(--item-margin);
+  border: var(--item-border-width) solid var(--item-border-color);
+  border-radius: var(--radius);
+  color: wheat;
+  font-style: 1.4rem;
+  text-align: center;
+  line-height: 43px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.item-filled {
+  background: var(--item-fill-color);
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.item-empty {
+  background: var(--item-empty-color);
+}
+
+.info {
+  padding: 1rem;
+  border-radius: var(--radius);
+  background: var(--item-fill-color);
+}
+
+.info-count {
+  color: #ffffff;
+  font-size: 1.5rem;
+}
+
+
+
+
 
